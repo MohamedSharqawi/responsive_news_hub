@@ -1,0 +1,374 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    --very-dark-color: hsl(240, 100%, 5%);
+    --dark-grayish-blue: hsl(236, 13%, 42%);
+    --grayish-blue: hsl(233, 8%, 79%);
+    --off-white: hsl(36, 100%, 99%);
+    --soft-red: hsl(5, 85%, 63%);
+    --soft-orange: hsl(35, 77%, 62%);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+html {
+    font-family: Inter;
+    font-size: 15px;
+}
+
+body {
+    min-height: 100vh;
+    background-color: var(--off-white);
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px 80px;
+}
+
+.container {
+    width: 1100px;
+}
+
+.container header {
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.container header img {
+    width: 60px;
+}
+
+.container header ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.container header ul li a {
+    text-decoration: none;
+    font-weight: 500;
+    color: var(--dark-grayish-blue);
+}
+
+.container header .vis-ul li a:hover {
+    color: var(--soft-red);
+}
+
+.container header .hid-prt {
+    position: fixed;
+    right: -350px;
+    top: 0;
+    background-color: var(--off-white);
+    height: 100vh;
+    width: 250px;
+    padding: 20px;
+    z-index: 999;
+    transition: 0.3s;
+}
+
+.full-screen {
+    background-color: hsla(0, 0%, 0%, 0.3);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    display: none;
+}
+
+#check-repsonse:checked ~ header .hid-prt {
+    right: 0px;
+}
+
+#check-repsonse:checked ~ .full-screen {
+    display: block;
+}
+
+.container header .hid-prt label {
+    display: block;
+    height: 30px;
+    width: 30px;
+    position: relative;
+    margin-left: auto;
+    cursor: pointer;
+}
+
+.container header .hid-prt label div {
+    width: 30px;
+    height: 2.2px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+.container header .hid-prt label div:first-child {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.container header .hid-prt label div:last-child {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.container header .hid-prt .hid-ul {
+    margin-top: 80px;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.container header .hid-prt .hid-ul li {
+    padding: 15px 30px;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 5px;
+}
+
+.container header .hid-prt .hid-ul li:hover {
+    background-color: hsl(0, 0%, 90%);
+}
+
+.container header .hid-prt .hid-ul li a {
+    color: var(--very-dark-color);
+}
+
+.container header label.hum {
+    width: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    cursor: pointer;
+    display: none;
+}
+
+.container header label div {
+    width: 100%;
+    height: 2.4px;
+    background-color: var(--very-dark-color);
+}
+
+.container main {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 298px repeat(2, auto);
+    grid-template-areas: 
+    "web web box"
+    "par txt box"
+    "one two three";
+    gap: 25px;
+}
+
+.container main > .img {
+    grid-area: web;
+    background-image: url(images/image-web-3-desktop.jpg);
+    background-size: cover;
+    background-position: center center;
+}
+
+.container main .black-box {
+    grid-area: box;
+    min-height: 450px;
+    background-color: var(--very-dark-color);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+.container main .black-box h1 {
+    color: var(--soft-orange);
+    font-size: 2.2rem;
+}
+
+.container main .black-box .news-cont {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    height: 100%;
+}
+
+.container main .black-box div {
+    position: relative;
+}
+
+.container main .black-box div:not(:last-child)::after {
+    content: "";
+    background-color: var(--dark-grayish-blue);
+    width: 100%;
+    height: 0.8px;
+    position: absolute;
+    top: 130%;
+}
+
+.container main .black-box div h3 a {
+    text-decoration: none;
+    color: var(--off-white);
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+.container main .black-box div h3 a:hover {
+    color: var(--soft-orange);
+}
+
+.container main .black-box div p {
+    color: var(--grayish-blue);
+    margin-top: 5px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.container main > h1 {
+    grid-area: par;
+    font-size: 3.2rem;
+    font-weight: 800;
+    padding-right: 40px;
+}
+
+.container main .txt {
+    grid-area: txt;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 32px;
+}
+
+.container main .txt p {
+    color: var(--dark-grayish-blue);
+    line-height: 1.6;
+}
+
+.container main .txt a {
+    text-decoration: none;
+    background-color: var(--soft-red);
+    color: var(--very-dark-color);
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 4px;
+    padding: 13px 27px;
+    box-shadow: 0 1px 0 var(--soft-orange);
+}
+
+.container main .txt a:hover {
+    background-color: var(--very-dark-color);
+    color: var(--off-white);
+    box-shadow: none;
+}
+
+.container main .box {
+    display: flex;
+    gap: 20px;
+}
+
+.container main .box img {
+    width: 100px
+}
+
+.container main .box .txt-cont {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.container main .box .txt-cont h1 {
+    color: var(--soft-red);
+    font-size: 2.5rem;
+}
+
+.container main .box .txt-cont h3 a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: var(--very-dark-color);
+    cursor: pointer;
+}
+
+.container main .box .txt-cont h3 a:hover {
+    color: var(--soft-red);
+}
+
+.container main .box .txt-cont p {
+    color: var(--dark-grayish-blue);
+}
+
+.container main .one {
+    grid-area: one;
+}
+
+.container main .two {
+    grid-area: two;
+}
+
+.container main .three {
+    grid-area: three;
+}
+
+@media only screen and (max-width: 1150px) {
+    .container {
+        width: 800px;
+    }
+
+    .container main {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas: 
+        "web web"
+        "par box"
+        "txt box"
+        "one two"
+        "three .";
+    }
+}
+
+@media only screen and (max-width: 850px) {
+    .container {
+        width: 600px;
+    }
+
+    .container header .vis-ul {
+        display: none;
+    }
+
+    .container header label.hum {
+        display: flex;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    .container {
+        flex-grow: 5;
+        min-width: 300px;
+    }
+
+    .container main {
+        grid-template-columns: auto;
+        grid-template-areas: 
+        "web"
+        "par"
+        "txt"
+        "box"
+        "one"
+        "two"
+        "three";
+    }
+
+    .container main div.img {
+        background-image: url(images/image-web-3-mobile.jpg);
+    }
+}
